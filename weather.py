@@ -44,7 +44,7 @@ else:
     print('Reason: %s' % json2['error']['reason'])
 
 stationId = data2[0]['id']
-print(stationId)
+
 
 # Now get the weather for this place:
 endpoint = 'https://frost.met.no/observations/v0.jsonld'
@@ -66,5 +66,12 @@ else:
     print('Message: %s' % json3['error']['message'])
     print('Reason: %s' % json3['error']['reason'])
 
-print(data3[0]['observations'][0]['value'], data3[0]['observations'][0]['unit'])
-print(data3[0]['observations'][1]['value'], data3[0]['observations'][1]['unit'])
+try:
+    print(data3[0]['observations'][0]['value'], data3[0]['observations'][0]['unit'])
+    print(data3[0]['observations'][1]['value'], data3[0]['observations'][1]['unit'])
+except NameError:
+    print('No data available for this date')
+except IndexError:
+    print('Temperature data not available for this date')
+
+
