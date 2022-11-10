@@ -1,5 +1,6 @@
 from weather import weather
 from stlGen import stlGen
+import subprocess, sys
 
 def main():
 
@@ -16,4 +17,8 @@ def main():
 
     stl = stlGen()
     stl.generate_png(weatherdata)
+    # open the stl file in ultimaker
+    opener = "open" if sys.platform == "darwin" else "xdg-open"
+    subprocess.call([opener, "/home/jonas/MAS417_project/MAS417_project/weatherData.stl"])
+
 main()
