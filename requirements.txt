@@ -1,2 +1,5 @@
-requests
-pandas
+matplotlib==3.6.2
+numpy==1.17.4
+requests==2.22.0
+scipy==1.9.3
+setuptools==45.2.0
