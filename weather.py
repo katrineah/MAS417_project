@@ -71,9 +71,12 @@ class weather:
             print('Reason: %s' % json3['error']['reason'])
 
         try:
-            temp = data3[0]['observations'][0]['value'], data3[0]['observations'][0]['unit']
-            rain = data3[0]['observations'][1]['value'], data3[0]['observations'][1]['unit']
-            self.weatherdata = [f'{temp}',' ',f'{rain}']
+            temp = data3[0]['observations'][0]['value']
+            unit0 = data3[0]['observations'][0]['unit']
+            rain = data3[0]['observations'][1]['value']
+            unit1 = data3[0]['observations'][1]['unit']
+
+            self.weatherdata = f"Temp: {temp} {unit0}\nRain: {rain} {unit1}"
             return self.weatherdata
         except NameError:
             print('No data available for this date')
