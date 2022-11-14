@@ -79,9 +79,21 @@ class weather:
             self.weatherdata = f"Temp: {temp} {unit0}\nRain: {rain} {unit1}"
             return self.weatherdata
         except NameError:
-            print('No data available for this date')
+            print("No data available for this date")
+            self.weatherdata = "No data available\nfor this date"
+            return self.weatherdata
         except IndexError:
-            print('Temperature data not available for this date')
+            data = data3[0]['observations'][0]['value']
+            unit = data3[0]['observations'][0]['unit']
+            if unit == "degC":
+                print("Rain data not available for this date")
+
+                self.weatherdata = f"Temp: {data} {unit}\nRain: Not available"
+            elif unit == "mm":
+                print('Temperature data not available for this date')
+                self.weatherdata = f"Temp: Not available\nRain: {data} {unit}"
+
+            return self.weatherdata
 
 
 
