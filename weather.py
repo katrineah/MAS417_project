@@ -75,7 +75,6 @@ class weather:
             unit0 = data3[0]['observations'][0]['unit']
             rain = data3[0]['observations'][1]['value']
             unit1 = data3[0]['observations'][1]['unit']
-
             self.weatherdata = f"Temp: {temp} {unit0}\nRain: {rain} {unit1}"
             return self.weatherdata
         except NameError:
@@ -87,7 +86,6 @@ class weather:
             unit = data3[0]['observations'][0]['unit']
             if unit == "degC":
                 print("Rain data not available for this date")
-
                 self.weatherdata = f"Temp: {data} {unit}\nRain: Not available"
             elif unit == "mm":
                 print('Temperature data not available for this date')
